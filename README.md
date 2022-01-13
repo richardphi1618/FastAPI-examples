@@ -27,8 +27,9 @@ Example files in this repo are name `example-{name}` you can provide the name in
 `just run graphql`
 
 
-## RTFM
+## Documentation / References Material
 
 - FastAPI - <https://fastapi.tiangolo.com/>
 - FastAPI + GraphQL = <https://strawberry.rocks/docs/integrations/fastapi>
+- https://cloud.google.com/apis/design
 
