@@ -1,27 +1,37 @@
+from uuid import uuid4
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
 
-
 items = {}
 
 
 class Item(BaseModel):
-    id: int
+    user_id: int
+    val: float
+    desc: str
 
 
 @app.get("/items")
 def list_items():
-    return list(items.values())
+    return items
 
 
 @app.post("/items", status_code=201)
 def create_item(body: Item):
-    items[body.id] = body
+    uniqueID = uuid4()
+    print(uniqueID)
+    items[str(uniqueID)] = body
     return body
 
 
-@app.get("/items/{id}")
-def get_item(id: int):
-    return Item(items[id])
+@app.get("/items/{uniqueID}")
+def get_item(uniqueID: str):
+    print(f"\n************")
+    print(uniqueID)
+    print(items.keys())
+    print(f"\n************")
+
+    return items[uniqueID]
