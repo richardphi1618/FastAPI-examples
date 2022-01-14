@@ -20,5 +20,5 @@ slides from the presentation are included as a file `slides.pdf`
 
 - FastAPI - <https://fastapi.tiangolo.com/>
 - FastAPI + GraphQL - <https://strawberry.rocks/docs/integrations/fastapi>
-- API design Guidelines - https://cloud.google.com/apis/design
+- API design Guidelines - <https://cloud.google.com/apis/design>
 
