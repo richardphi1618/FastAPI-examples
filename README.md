@@ -8,28 +8,17 @@ slides from the presentation are included as a file `slides.pdf`
 
 ## Requirements
 
-The required packages are included with in a pipfile. You can use pipenv to install them. 
-
-`pipenv install packages`
-
-This repo also makes use of a `justfile` you can get info on how to install just here: [GitHub - casey/just: 🤖 Just a command runner](https://github.com/casey/just)
-
-Note: The justfile is a mix of bash and python code that you can execute manually
-
-Docker is also used to stand up database and scaling examples.
+`pip install -r .\requirements.txt`
 
 ## Running Examples
 
-Example files in this repo are name `example-{name}` you can provide the name into the just command to run them. 
+`uvicorn example-0:app --reload`
 
-`just run 0`
-
-`just run graphql`
-
+`uvicorn example-1:app --reload`
 
 ## Documentation / References Material
 
 - FastAPI - <https://fastapi.tiangolo.com/>
-- FastAPI + GraphQL = <https://strawberry.rocks/docs/integrations/fastapi>
-- https://cloud.google.com/apis/design
+- FastAPI + GraphQL - <https://strawberry.rocks/docs/integrations/fastapi>
+- API design Guidelines - https://cloud.google.com/apis/design
 
