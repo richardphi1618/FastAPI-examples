@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  api1:
+    container_name: api1
+    hostname: api1
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 1000 
+    ports:
+      - 1000:1000

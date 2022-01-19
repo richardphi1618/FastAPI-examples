@@ -1,7 +1,7 @@
 from typing import Optional
 from uuid import uuid4
 
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -9,11 +9,23 @@ app = FastAPI()
 items = []
 
 
+def root_path(request: Request):
+    if request.scope.get("root_path") == "":
+        return "NA"
+    else:
+        return request.scope.get("root_path")
+
+
 class Item(BaseModel):
     unique_id: Optional[str]
     user_id: str
     val: float
     desc: Optional[str]
+
+
+@app.get("/")
+def read_root(request: Request):
+    return {"Hello": "World", "root_path": root_path(request)}
 
 
 @app.get("/items")
