@@ -17,6 +17,12 @@ services:
     build:
       context: .
       dockerfile: api/Dockerfile
+    environment:
+      - title = api1
+      - docs_url = /docs
+      - redoc_url = /redocs
+      - openapi_url = /openapi.json
+      - root_path = /api1
     command: uvicorn main:app --reload --host 0.0.0.0 --port 1000 
     expose:
       - 1000
@@ -29,7 +35,13 @@ services:
     build:
       context: .
       dockerfile: api/Dockerfile
-    command: uvicorn example:app --reload --host 0.0.0.0 --port 2000
+    environment:
+      - title = api2
+      - docs_url = /docs
+      - redoc_url = /redocs
+      - openapi_url = /openapi.json
+      - root_path = /api2
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 2000
     expose:
       - 2000
     # ports:

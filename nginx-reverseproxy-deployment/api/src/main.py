@@ -1,10 +1,15 @@
+import os
 from typing import Optional
 from uuid import uuid4
 
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(title=os.environ.get('title'),
+                docs_url=os.environ.get('docs_url'), 
+                redoc_url=os.environ.get('redoc_url'),
+                openapi_url=os.environ.get('openapi_url'),
+                root_path=os.environ.get('root_path'))
 
 items = []
 

@@ -1,7 +1,7 @@
 from typing import Optional
 from uuid import uuid4
 
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -10,10 +10,10 @@ items = []
 
 
 class Item(BaseModel):
-    unique_id: Optional[str]
-    user_id: str
-    val: float
-    desc: Optional[str]
+    unique_id: Optional[str]  # uuid generated when item logged
+    user_id: str  # user id for user lookup later
+    val: float  # value stored
+    desc: Optional[str]  # user description of the item
 
 
 @app.get("/items")
